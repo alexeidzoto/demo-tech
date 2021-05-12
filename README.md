@@ -1,2 +1,0 @@
-# demo-tech
-Demos Tech
