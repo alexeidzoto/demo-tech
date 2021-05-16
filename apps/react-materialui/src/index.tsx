@@ -10,7 +10,8 @@ import reportWebVitals from './reportWebVitals';
 import { LayoutProvider } from "./context/LayoutContext";
 import { UserProvider } from "./context/UserContext";
 import { Auth0ProviderWithHistory } from "./context/AuthOContext";
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const queryClient = new QueryClient();
 
 ReactDOM.render(
@@ -21,7 +22,8 @@ ReactDOM.render(
           <Auth0ProviderWithHistory>
             <ThemeProvider theme={Themes.default}>
               <CssBaseline />
-                <App />
+              <ToastContainer />
+              <App />
             </ThemeProvider>
           </Auth0ProviderWithHistory>
         </UserProvider>

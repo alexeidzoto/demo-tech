@@ -11,6 +11,7 @@ import {
   CircularProgress,
   Button,
 } from '@material-ui/core';
+import { toast } from 'react-toastify';
 
 // interface GenreDelProps {
 //   handleClose: ;
@@ -25,11 +26,11 @@ const GenreDel = (props: any) => {
 
   const { mutateAsync, isLoading } = useMutation(genreService.delete, {
     onSuccess: data => {
-      console.log(data);
+      toast(`The playlist was successfully deleted.`);
       handleClose()
     },
     onError: () => {
-      alert("there was an error")
+      alert("There was an error")
     },
     onSettled: () => {
       queryClient.invalidateQueries('genres');
@@ -51,7 +52,7 @@ const GenreDel = (props: any) => {
             Delete genre
           </DialogTitle>
           <DialogContent>
-            Are you sure that you want to deleteGenre?
+            Are you sure that you want to delete Genre?
           </DialogContent>
           <DialogActions>
             <Button color="primary" onClick={handleClose} variant="outlined">

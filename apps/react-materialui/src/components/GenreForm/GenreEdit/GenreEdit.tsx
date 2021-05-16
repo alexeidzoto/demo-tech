@@ -3,7 +3,6 @@ import React from 'react';
 import { useMutation, useQueryClient, useQuery } from 'react-query';
 import { useForm, Controller } from 'react-hook-form';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core';
 import {
   Dialog,
   DialogContent,
@@ -14,47 +13,27 @@ import {
   Button,
   TextField,
 } from '@material-ui/core';
-// import { yupResolver } from '@hookform/resolvers/yup';
-// import * as yup from "yup";
+import { toast } from 'react-toastify';
+
+// styles
+import useStyles from "./styles";
+
+// domain
 import { genreService } from '../../../domain/services';
 import { Genre } from '../../../domain/types';
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: theme.spacing(2),
-
-    '& .MuiTextField-root': {
-      margin: theme.spacing(1),
-      width: '300px',
-    },
-    '& .MuiButtonBase-root': {
-      margin: theme.spacing(2),
-    },
-  },
-}));
 
 const GenreEdit = (props: any) => {
   const { open, handleClose, initialData } = props;
 
   const classes = useStyles();
   
-  // const schema = yup.object().shape({
-  //   name: yup.string().required(),
-  // });
-  // const { register, handleSubmit, setValue, formState} = useForm<Genre>({
-  //   resolver: yupResolver(schema),
-  // });
-  const { handleSubmit, control, formState } = useForm();
+  const { handleSubmit, control } = useForm();
   const queryClient = useQueryClient();
 
   const { data } = useQuery(['genre', { initialData }], genreService.get);
   const { mutateAsync, isLoading } = useMutation(genreService.update, {
     onSuccess: data => {
-      console.log(data);
+      toast(`The playlist was updated successfully`);
       handleClose();
     },
     onError: () => {
