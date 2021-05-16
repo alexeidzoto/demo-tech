@@ -61,9 +61,10 @@ const structure = [
   { id: 8, label: "Support", link: "https://flatlogic.com/forum", icon: <SupportIcon /> },
   { id: 9, label: "FAQ", link: "https://flatlogic.com/forum", icon: <FAQIcon /> },
   { id: 10, type: "divider" },
-  { id: 11, type: "title", label: "PROJECTS" },
+  { id: 11, type: "title", label: "Chinook Catalog" },
   { id: 12, label: "Playlists", link: "/app/playlists", icon: <TableIcon /> },
   { id: 13, label: "Tracks", link: "/app/tracks", icon: <TableIcon /> },
+  { id: 14, label: "Genres", link: "/app/genres", icon: <TableIcon /> },
   // { id: 11, type: "title", label: "PROJECTS" },
   // {
   //   id: 12,

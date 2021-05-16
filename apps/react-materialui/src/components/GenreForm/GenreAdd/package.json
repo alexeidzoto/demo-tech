@@ -1,0 +1,6 @@
+{
+  "name": "GenreAdd",
+  "version": "0.0.0",
+  "private": true,
+  "main": "GenreAdd.tsx"
+}

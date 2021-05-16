@@ -1,0 +1,6 @@
+{
+  "name": "GenreEdit",
+  "version": "0.0.0",
+  "private": true,
+  "main": "GenreEdit.tsx"
+}
