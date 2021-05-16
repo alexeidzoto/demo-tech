@@ -10,15 +10,13 @@ import {
   Fade,
 } from "@material-ui/core";
 import { withRouter } from "react-router-dom";
-import classnames from "classnames";
 import { LoginButtonAuthO } from "../../components/ButtonAuthO";
 
 // styles
 import useStyles from "./styles";
 
 // logo
-import logo from "./logo.svg";
-import google from "../../images/google.svg";
+import logo from "../../assets/images/logo.png";
 
 // context
 import { useUserDispatch, loginUser } from "../../context/UserContext";
@@ -41,7 +39,7 @@ function Login(props) {
     <Grid container className={classes.container}>
       <div className={classes.logotypeContainer}>
         <img src={logo} alt="logo" className={classes.logotypeImage} />
-        <Typography className={classes.logotypeText}>Material Admin</Typography>
+        <Typography className={classes.logotypeText}>Demo</Typography>
       </div>
       <div className={classes.formContainer}>
         <div className={classes.form}>
@@ -60,10 +58,6 @@ function Login(props) {
               <Typography variant="h1" className={classes.greeting}>
                 Good Morning, User
               </Typography>
-              {/* <Button size="large" className={classes.googleButton}>
-                <img src={google} alt="google" className={classes.googleIcon} />
-                &nbsp;Sign in with Google
-              </Button> */}
               <LoginButtonAuthO />
               <div className={classes.formDividerContainer}>
                 <div className={classes.formDivider} />
@@ -130,13 +124,6 @@ function Login(props) {
                     Login
                   </Button>
                 )}
-                <Button
-                  color="primary"
-                  size="large"
-                  className={classes.forgetButton}
-                >
-                  Forget Password
-                </Button>
               </div>
             </React.Fragment>
           )}
@@ -233,7 +220,7 @@ function Login(props) {
                 <Typography className={classes.formDividerWord}>or</Typography>
                 <div className={classes.formDivider} />
               </div>
-              <Button
+              {/* <Button
                 size="large"
                 className={classnames(
                   classes.googleButton,
@@ -242,7 +229,7 @@ function Login(props) {
               >
                 <img src={google} alt="google" className={classes.googleIcon} />
                 &nbsp;Sign in with Google
-              </Button>
+              </Button> */}
             </React.Fragment>
           )}
         </div>

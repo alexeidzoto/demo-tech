@@ -1,0 +1,28 @@
+version: "3.9"
+
+# >>> SERVICES >>>
+services:
+  # >>> REACT WEB >>>
+  react-web:
+    image: react/react-web:1.0.0
+    build:
+      context: .
+      dockerfile: ./docker/node/Dockerfile
+      target: build-react
+    container_name: react-web
+    restart: unless-stopped
+    env_file:
+      - ./.env
+    ports:
+      - "3000:3000"
+    volumes:
+      - ".:/usr/src/app"
+      - "/usr/src/app/node_modules"
+    networks:
+      - react-network
+  # <<< REACT WEB <<<
+
+# >>> NETWORKS >>>
+networks:
+  react-network:
+    driver: bridge

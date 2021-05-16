@@ -1,0 +1,6 @@
+{
+  "name": "PlaylistDel",
+  "version": "0.0.0",
+  "private": true,
+  "main": "PlaylistDel.tsx"
+}

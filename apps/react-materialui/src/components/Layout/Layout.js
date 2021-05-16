@@ -31,6 +31,8 @@ import Maps from "../../pages/maps";
 import Tables from "../../pages/tables";
 import Icons from "../../pages/icons";
 import Charts from "../../pages/charts";
+import Playlists from "../../pages/playlists";
+import Tracks from "../../pages/tracks";
 
 // context
 import { useLayoutState } from "../../context/LayoutContext";
@@ -57,6 +59,8 @@ function Layout(props) {
               <Route path="/app/typography" component={Typography} />
               <Route path="/app/tables" component={Tables} />
               <Route path="/app/notifications" component={Notifications} />
+              <Route path="/app/playlists" component={Playlists} />
+              <Route path="/app/tracks" component={Tracks} />
               <Route
                 exact
                 path="/app/ui"

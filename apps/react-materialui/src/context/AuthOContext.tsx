@@ -12,9 +12,9 @@ export const Auth0ProviderWithHistory = ({ children }: any) => {
   // const history = useHistory();
 
   // const onRedirectCallback = (appState: any) => {
-  //   localStorage.setItem('provider', "local");
-  //   userDispatch({ type: 'LOGIN_SUCCESS' })
-  //   history.push('/app/dashboard')
+    // localStorage.setItem('id_token', "1");
+    // userDispatch({ type: 'LOGIN_SUCCESS' })
+    // history.push('/app/dashboard')
   // };
 
   return (

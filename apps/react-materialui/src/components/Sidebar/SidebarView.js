@@ -18,7 +18,7 @@ import {
 import classNames from 'classnames';
 
 import SidebarLink from './components/SidebarLink/SidebarLinkContainer';
-import Dot from './components/Dot';
+// import Dot from './components/Dot';
 
 const structure = [
   { id: 0, label: 'Dashboard', link: '/app/dashboard', icon: <HomeIcon /> },
@@ -43,9 +43,11 @@ const structure = [
   { id: 9, label: 'FAQ', link: 'https://flatlogic.com/forum/', icon: <FAQIcon />},
   { id: 10, type: 'divider' },
   { id: 11, type: 'title', label: 'PROJECTS' },
-  { id: 12, label: 'My recent', link: '', icon: <Dot size="small" color="secondary" /> },
-  { id: 13, label: 'Starred', link: '', icon: <Dot size="small" color="primary" /> },
-  { id: 14, label: 'Background', link: '', icon: <Dot size="small" color="secondary" /> },
+  { id: 12, label: "Playlists", link: "/app/playlists", icon: <TableIcon /> },
+  { id: 13, label: "Tracks", link: "/app/tracks", icon: <TableIcon /> },
+  // { id: 12, label: 'My recent', link: '', icon: <Dot size="small" color="secondary" /> },
+  // { id: 13, label: 'Starred', link: '', icon: <Dot size="small" color="primary" /> },
+  // { id: 14, label: 'Background', link: '', icon: <Dot size="small" color="secondary" /> },
 ];
 
 const SidebarView = ({ classes, theme, toggleSidebar, isSidebarOpened, isPermanent, location }) => {

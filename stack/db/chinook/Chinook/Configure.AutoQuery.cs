@@ -14,6 +14,7 @@ namespace Chinook
                 //     AddDataContractAttributes = false,
                 // }
             });
+            appHost.Plugins.Add(new CorsFeature());
         }
     }
 }

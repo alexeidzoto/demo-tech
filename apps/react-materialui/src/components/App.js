@@ -14,12 +14,14 @@ import { useUserState } from "../context/UserContext";
 
 export default function App() {
   // global
-  const provider = localStorage.getItem("provider") || "local";
+  const provider = localStorage.getItem("provider") || "authO";
   const AUTH_PROVIDER = {
     "local": useUserState(),
     "authO": useAuth0()
   }
   const { isAuthenticated } = AUTH_PROVIDER[provider];
+  localStorage.setItem("auth", isAuthenticated);
+
   // const { isAuthenticated } = useAuth0();
   // const anyAuthenticated = isAuthenticatedLocal;
 
