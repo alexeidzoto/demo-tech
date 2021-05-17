@@ -19,6 +19,7 @@ import useStyles from "./styles";
 // components
 import { Typography } from "../Wrappers/Wrappers";
 import { LogoutButtonAuthO } from "../ButtonAuthO"
+import { useAuth0 } from "@auth0/auth0-react";
 
 // context
 import {
@@ -30,13 +31,15 @@ import { useUserDispatch, signOut } from "../../context/UserContext";
 
 export default function Header(props: any) {
   const classes = useStyles();
-
+  const { user, isAuthenticated, isLoading } = useAuth0();
+  
   // global
   const layoutState: any = useLayoutState();
   const layoutDispatch: any = useLayoutDispatch();
   const userDispatch: any = useUserDispatch();
   
   // local
+  
   const provider: string | any = localStorage.getItem("provider");
   const [profileMenu, setProfileMenu] = useState<any>(null);
 
@@ -94,9 +97,12 @@ export default function Header(props: any) {
           disableAutoFocusItem
         >
           <div className={classes.profileMenuUser}>
+          {isAuthenticated && !isLoading && (
             <Typography variant="h4" weight="medium">
-              John Smith
+              {user?.name} 
+              {JSON.stringify(provider)}
             </Typography>
+          )}
             <Typography
               className={classes.profileMenuLink}
               component="a"

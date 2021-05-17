@@ -33,6 +33,22 @@ $> npm run start:chinook
 
 ![](https://cdn2.auth0.com/docs/media/articles/dashboard/client_settings.png)
 
+### Configure Callback URLs
+
+A callback URL is a URL in your application where Auth0 redirects the user after they have authenticated. The callback URL for your app must be added to the **Allowed Callback URLs** field in your [Application Settings](https://manage.auth0.com/#/applications). If this field is not set, users will be unable to log in to the application and will get an error.
+
+### Configure Allowed Web Origins
+
+You need to add the URL for your app to the **Allowed Web Origins** field in your [Application Settings](https://manage.auth0.com/#/applications/YOUR_CLIENT_ID/settings). If you don't register your application URL here, the application will be unable to silently refresh the authentication tokens and your users will be logged out the next time they visit the application, or refresh the page.
+
+### Configure Logout URLs
+
+A logout URL is a URL in your application that Auth0 can return to after the user has been logged out of the authorization server. This is specified in the `returnTo` query parameter. The logout URL for your app must be added to the **Allowed Logout URLs** field in your [Application Settings](https://manage.auth0.com/#/applications). If this field is not set, users will be unable to log out from the application and will get an error.
+
+![](./autho-conf.png)
+
+
+
 - ### 4- Rename `apps/react-materialui/.env.example` to `apps/react-materialui/.env` and add the information from STEP 3
 
 ```bash
