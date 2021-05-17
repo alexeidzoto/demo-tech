@@ -37,7 +37,7 @@ import { useLayoutState } from "../../context/LayoutContext";
 import ReactHelp from "../../pages/helps/react-help/ReactHelp";
 import AuthoHelp from "../../pages/helps/auth0-help/AuthoHelp";
 import ChinookHelp from "../../pages/helps/chinook-help/ChinookHelp";
-import ServicestackHelp from "../../pages/helps/servicestack-help/ServicestackHelp";
+import SStackHelp from "../../pages/helps/sstack-help /SStackHelp";
 
 
 function Layout(props: any) {
@@ -68,7 +68,7 @@ function Layout(props: any) {
               <Route path="/app/react" component={ReactHelp} />
               <Route path="/app/autho" component={AuthoHelp} />
               <Route path="/app/chinook" component={ChinookHelp} />
-              <Route path="/app/servicestack" component={ServicestackHelp} />
+              <Route path="/app/servicestack" component={SStackHelp} />
             </Switch>
             <Box
               mt={5}

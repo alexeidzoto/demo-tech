@@ -10,16 +10,11 @@ import React from "react";
 //   Button
 // } from "@material-ui/core";
 
-// styles
-// import useStyles from "./styles";
-
 // components
 import PageTitle from "../../../components/PageTitle/PageTitle";
 
 
-export default function ServicestackHelp () {
-
-  // const classes = useStyles();
+export default function SStackHelp () {
 
   return (
     <>

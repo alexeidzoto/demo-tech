@@ -102,17 +102,17 @@ export default function Tracks() {
     indexColumn:
       "name" /* <-- add your data first unique column name for this like _id, i used fname because i don't have a _id field in my array */,
     printButton: true,
+    selectableRows: "none",
   };
   
   return (
     <>
-      <div>
-        {status === "error" && <p>Error: {error.message}</p>}
-        {status === "loading" && <p>Fetching data...</p>}
-      </div>
-
       <PageTitle title="Tracks" />
       <Grid container spacing={4}>
+        <Grid item xs={12}>
+          {status === "error" && <p>Error: {error.message}</p>}
+          {status === "loading" && <p>Fetching data...</p>}
+        </Grid>
         <Grid item xs={12}>
           {status === "success" && (
             <MUIDataTable

@@ -1,6 +1,5 @@
 import React from "react";
 import { Grid, ButtonGroup } from "@material-ui/core";
-// import { makeStyles } from "@material-ui/styles";
 import MUIDataTable from "mui-datatables";
 import { useQuery } from "react-query";
 
@@ -13,14 +12,7 @@ import ButtonModal from "../../components/ButtonModal/ButtonModal";
 
 import { genreService } from '../../domain/services';
 
-// const useStyles = makeStyles(theme => ({
-//   tableOverflow: {
-//     overflow: 'auto'
-//   }
-// }))
-
 export default function Genres() {
-  // const classes: any = useStyles();
 
   const { data, status, error } = useQuery("genres", genreService.all) as any;
 
