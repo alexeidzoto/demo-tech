@@ -34,6 +34,11 @@ import Albums from "../../pages/albums/Albums";
 
 // context
 import { useLayoutState } from "../../context/LayoutContext";
+import ReactHelp from "../../pages/helps/react-help/ReactHelp";
+import AuthoHelp from "../../pages/helps/auth0-help/AuthoHelp";
+import ChinookHelp from "../../pages/helps/chinook-help/ChinookHelp";
+import ServicestackHelp from "../../pages/helps/servicestack-help/ServicestackHelp";
+
 
 function Layout(props: any) {
   const classes = useStyles();
@@ -60,6 +65,10 @@ function Layout(props: any) {
               <Route path="/app/artists" component={Artists} />
               <Route path="/app/mediatypes" component={MediaTypes} />
               <Route path="/app/albums" component={Albums} />
+              <Route path="/app/react" component={ReactHelp} />
+              <Route path="/app/autho" component={AuthoHelp} />
+              <Route path="/app/chinook" component={ChinookHelp} />
+              <Route path="/app/servicestack" component={ServicestackHelp} />
             </Switch>
             <Box
               mt={5}

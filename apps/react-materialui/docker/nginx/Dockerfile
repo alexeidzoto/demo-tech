@@ -1,28 +1,28 @@
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> STAGE 1 BUILD >>>>>>>><<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-# FROM node:10 AS builder
-FROM node:10
+FROM node:10 as builder
 
 WORKDIR /usr/src/app
 
-COPY ./package.json /usr/src/app/package.json
+COPY . .
 
-RUN npm install --no-cache
+RUN yarn install && yarn build
 
-COPY . /usr/src/app
+# EXPOSE 3000
 
-RUN npm run build --no-cache
+# CMD ["yarn", "start"]
+
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< STAGE 1 BUILD <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> STAGE 2 NGINX >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-# FROM nginx:1.13.9-alpine
+FROM nginx:1.13.9-alpine
 
-# COPY --from=builder /usr/src/app/dist /usr/share/nginx/html
+COPY --from=builder /usr/src/app/build /usr/share/nginx/html
 
-# RUN rm -rf /etc/nginx/conf.d/default.conf
+RUN rm -rf /etc/nginx/conf.d/default.conf
 
-# ADD ./docker/nginx/docker-nginx-default.conf /etc/nginx/conf.d/default.conf
+COPY ./docker/nginx/docker-nginx-default.conf /etc/nginx/conf.d/default.conf
 
-# EXPOSE 80
+EXPOSE 80
 
-# CMD ["nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"]
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< STAGE 2 NGINX <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<

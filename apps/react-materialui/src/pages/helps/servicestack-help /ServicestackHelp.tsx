@@ -17,7 +17,7 @@ import React from "react";
 import PageTitle from "../../../components/PageTitle/PageTitle";
 
 
-export default function ReactHelp () {
+export default function ServicestackHelp () {
 
   // const classes = useStyles();
 

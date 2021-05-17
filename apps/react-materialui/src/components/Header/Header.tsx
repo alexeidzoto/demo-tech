@@ -3,14 +3,12 @@ import {
   AppBar,
   Toolbar,
   IconButton,
-  InputBase,
   Menu,
   MenuItem,
 } from "@material-ui/core";
 import {
   Menu as MenuIcon,
   Person as AccountIcon,
-  Search as SearchIcon,
   ArrowBack as ArrowBackIcon,
 } from "@material-ui/icons";
 import classNames from "classnames";
@@ -41,7 +39,6 @@ export default function Header(props: any) {
   // local
   const provider: string | any = localStorage.getItem("provider");
   const [profileMenu, setProfileMenu] = useState<any>(null);
-  const [isSearchOpen, setSearchOpen] = useState<boolean>(false);
 
   return (
     <AppBar position="fixed" className={classes.appBar}>
@@ -77,6 +74,16 @@ export default function Header(props: any) {
         <Typography variant="h6" weight="medium" className={classes.logotype}>
           Demo Admin
         </Typography>
+        <div className={classes.grow} />
+        <IconButton
+          aria-haspopup="true"
+          color="inherit"
+          className={classes.headerMenuButton}
+          aria-controls="profile-menu"
+          onClick={e => setProfileMenu(e.currentTarget)}
+        >
+          <AccountIcon classes={{ root: classes.headerIcon }} />
+        </IconButton>
         <Menu
           id="profile-menu"
           open={Boolean(profileMenu)}

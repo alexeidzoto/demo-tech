@@ -1,6 +1,6 @@
 {
   "name": "Tracks",
   "version": "0.0.0",
-  "main": "Tracks.js",
+  "main": "Tracks.tsx",
   "private": true
 }
