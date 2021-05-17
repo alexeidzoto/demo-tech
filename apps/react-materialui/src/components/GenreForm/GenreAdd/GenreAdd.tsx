@@ -15,16 +15,12 @@ import {
 } from '@material-ui/core';
 import { toast } from 'react-toastify';
 
-// styles
-import useStyles from "./styles";
-
 // domain
 import { Genre } from '../../../domain/types';
 import { genreService } from '../../../domain/services';
 
 const GenreAdd = (props: any) => {
   const { open, handleClose } = props;
-  const classes = useStyles();
 
   const { handleSubmit, control } = useForm();
 
@@ -53,7 +49,7 @@ const GenreAdd = (props: any) => {
         onClose={handleClose}
         open={open}
       >
-        <form className={classes.root} onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
+        <form onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
           <DialogTitle color="primary" id="form-dialog-title">
             Add genre
           </DialogTitle>
@@ -76,7 +72,6 @@ const GenreAdd = (props: any) => {
                   )}
                   rules={{ required: 'First name required' }}
                 />
-                {/* <p>{formState.errors.name?.message}</p> */}
               </Grid>
             </Grid>
           </DialogContent>

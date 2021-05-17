@@ -13,12 +13,6 @@ import {
 } from '@material-ui/core';
 import { toast } from 'react-toastify';
 
-// interface GenreDelProps {
-//   handleClose: ;
-//   open: boolean;
-//   initialData: any;
-// }
-
 const GenreDel = (props: any) => {
   const { open, handleClose, initialData } = props;
 

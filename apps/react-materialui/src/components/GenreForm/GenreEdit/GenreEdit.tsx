@@ -15,9 +15,6 @@ import {
 } from '@material-ui/core';
 import { toast } from 'react-toastify';
 
-// styles
-import useStyles from "./styles";
-
 // domain
 import { genreService } from '../../../domain/services';
 import { Genre } from '../../../domain/types';
@@ -25,19 +22,17 @@ import { Genre } from '../../../domain/types';
 const GenreEdit = (props: any) => {
   const { open, handleClose, initialData } = props;
 
-  const classes = useStyles();
-  
   const { handleSubmit, control } = useForm();
   const queryClient = useQueryClient();
 
-  const { data } = useQuery(['genre', { initialData }], genreService.get);
+  const { data: dataGenre } = useQuery(['genre', { initialData }], genreService.get);
   const { mutateAsync, isLoading } = useMutation(genreService.update, {
     onSuccess: data => {
       toast(`The genre was updated successfully`);
       handleClose();
     },
     onError: () => {
-      alert("there was an error")
+      alert("There was an error")
     },
     onSettled: () => {
       queryClient.invalidateQueries('genres');
@@ -55,7 +50,7 @@ const GenreEdit = (props: any) => {
         onClose={handleClose}
         open={open}
       >
-        <form className={classes.root} onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
+        <form onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
           <DialogTitle color="primary" id="form-dialog-title">
             Edit genre
           </DialogTitle>
@@ -65,7 +60,7 @@ const GenreEdit = (props: any) => {
               <Controller
                   name="name"
                   control={control}
-                  defaultValue={data?.name}
+                  defaultValue={dataGenre?.name}
                   render={({ field: { onChange, value }, fieldState: { error } }) => (
                     <TextField
                       label="Name"
