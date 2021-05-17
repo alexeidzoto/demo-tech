@@ -1,6 +1,5 @@
 import React from "react";
 import { Grid, ButtonGroup } from "@material-ui/core";
-// import { makeStyles } from "@material-ui/styles";
 import MUIDataTable from "mui-datatables";
 import { useQuery } from "react-query";
 
@@ -13,15 +12,7 @@ import ButtonModal from "../../components/ButtonModal";
 
 import { playlistService } from '../../domain/services';
 
-// const useStyles = makeStyles(theme => ({
-//   tableOverflow: {
-//     overflow: 'auto'
-//   }
-// }))
-
 export default function Playlists() {
-  // const classes = useStyles();
-
   const { data, status, error } = useQuery("playlists", playlistService.all);
 
   const columns = [
@@ -39,23 +30,6 @@ export default function Playlists() {
         filter: true,
       }
     },
-    // { 
-    //   name: "",
-    //   label: "Action",
-    //   options: {
-    //     filter: true,
-    //     sort: true,
-    //     customBodyRender: (value, tableMeta, updateValue) => {
-    //       const nf = new Intl.NumberFormat("en-US", {
-    //         style: "currency",
-    //         currency: "USD",
-    //         minimumFractionDigits: 2,
-    //         maximumFractionDigits: 2
-    //       });
-    //       return nf.format(value);
-    //     }
-    //   }
-    // },
     {
       label: " ",
       name: "playlistId",
@@ -85,18 +59,6 @@ export default function Playlists() {
     printButton: true,
     selectableRows: "none",
   };
-  
-    // filter: true,
-    // filterType: "checkbox",
-    // viewColumns: false,
-    // selectableRows: 'single',
-    // selectableRowsOnClick: true,
-    // elevation: 0,
-    // rowsPerPage: 10,
-    // responsive: 'simple',
-    // filterType: 'dropdown',
-  
-
   return (
     <>
       <div>
