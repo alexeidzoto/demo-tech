@@ -20,7 +20,6 @@ import useStyles from "./styles";
 
 // components
 import { Typography } from "../Wrappers/Wrappers";
-// import UserAvatar from "../UserAvatar/UserAvatar";
 import { LogoutButtonAuthO } from "../ButtonAuthO"
 
 // context
@@ -78,39 +77,6 @@ export default function Header(props: any) {
         <Typography variant="h6" weight="medium" className={classes.logotype}>
           Demo Admin
         </Typography>
-        <div className={classes.grow} />
-        {/* <Button component={Link} href="https://flatlogic.com/templates/react-material-admin-full" variant={"outlined"} color={"secondary"} className={classes.purchaseBtn}>Unlock full version</Button> */}
-        <div
-          className={classNames(classes.search, {
-            [classes.searchFocused]: isSearchOpen,
-          })}
-        >
-          <div
-            className={classNames(classes.searchIcon, {
-              [classes.searchIconOpened]: isSearchOpen,
-            })}
-            onClick={() => setSearchOpen(!isSearchOpen)}
-          >
-            <SearchIcon classes={{ root: classes.headerIcon }} />
-          </div>
-          <InputBase
-            placeholder="Search…"
-            classes={{
-              root: classes.inputRoot,
-              input: classes.inputInput,
-            }}
-          />
-        </div>
-        <IconButton
-          aria-haspopup="true"
-          color="inherit"
-          className={classes.headerMenuButton}
-          aria-controls="profile-menu"
-          onClick={e => setProfileMenu(e.currentTarget)}
-        >
-          <AccountIcon classes={{ root: classes.headerIcon }} />
-        </IconButton>
-       
         <Menu
           id="profile-menu"
           open={Boolean(profileMenu)}

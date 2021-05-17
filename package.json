@@ -2,6 +2,12 @@
   "name": "demo-tech",
   "version": "1.0.0",
   "repository": "https://github.com/alexeidzoto/demo-tech.git",
-  "author": "Alexei Díaz Soto <alexei.diaz@ripio.com>",
-  "license": "MIT"
+  "author": "Alexei Díaz Soto <alexei.dzoto@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start:chinook": "cd ./stack/db/chinook && docker-compose up -d --build",
+    "stop:chinook": "cd ./stack/db/chinook && docker-compose down",
+    "start:demoid": "cd ./apps/react-materialui && docker-compose up -d --build",
+    "stop:demoid": "cd ./apps/react-materialui && docker-compose up -d --build"
+  }
 }
