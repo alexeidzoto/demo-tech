@@ -63,11 +63,11 @@ const MediaTypeAdd = (props: any) => {
                 <Controller
                   name="name"
                   control={control}
-                  defaultValue=""
                   render={({ field: { onChange, value }, fieldState: { error } }) => (
                     <TextField
                       label="Name"
                       variant="filled"
+                      defaultValue=""
                       value={value}
                       onChange={onChange}
                       error={!!error}

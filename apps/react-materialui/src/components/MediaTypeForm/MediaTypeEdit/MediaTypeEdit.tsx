@@ -65,11 +65,11 @@ const MediaTypeEdit = (props: any) => {
               <Controller
                   name="name"
                   control={control}
-                  defaultValue={data?.name}
                   render={({ field: { onChange, value }, fieldState: { error } }) => (
                     <TextField
                       label="Name"
                       variant="filled"
+                      defaultValue={data?.name}
                       value={value}
                       onChange={onChange}
                       error={!!error}

@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, ButtonGroup } from "@material-ui/core";
+import { Grid, ButtonGroup, CircularProgress } from "@material-ui/core";
 // import { makeStyles } from "@material-ui/styles";
 import MUIDataTable from "mui-datatables";
 import { useQuery } from "react-query";
@@ -75,7 +75,10 @@ export default function MediaTypes() {
       <Grid container spacing={4}>
         <Grid item xs={12}>
           {status === "error" && <p>Error: {error.message}</p>}
-          {status === "loading" && <p>Fetching data...</p>}
+          {status === "loading" && <div>
+            <CircularProgress color="inherit" size={50} />
+            <p>Fetching data...</p>
+          </div>}
         </Grid>
         <Grid item xs={12}>
         {status === "success" && (
