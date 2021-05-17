@@ -32,27 +32,6 @@ class TrackService extends HttpClient {
     }
   };
 
-  // public logout = (token: string) => {
-  //   return this.instance.post<any>('/auths/jwt/logout', {}, {
-  //     headers: {
-  //       'accept': 'application/json',
-  //       'Content-Type': 'application/json',
-  //       'Authorization': `Bearer ${token}`
-  //     },
-  //   });
-  // };
-
-  // public getUserInfo = (token: string) => {
-  //   return this.instance.get<any>('/users/me/', {
-  //     headers: {
-  //       'accept': 'application/json',
-  //       'Content-Type': 'application/json',
-  //       'Authorization': `Bearer ${token}`
-  //     },
-  //   });
-  // }
-
-
 }
 
 export const trackService = TrackService.getInstance();
