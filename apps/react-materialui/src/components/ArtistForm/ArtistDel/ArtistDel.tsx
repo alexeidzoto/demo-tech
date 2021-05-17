@@ -13,20 +13,20 @@ import {
 } from '@material-ui/core';
 import { toast } from 'react-toastify';
 
-// interface GenreDelProps {
+// interface ArtistDelProps {
 //   handleClose: ;
 //   open: boolean;
 //   initialData: any;
 // }
 
-const GenreDel = (props: any) => {
+const ArtistDel = (props: any) => {
   const { open, handleClose, initialData } = props;
 
   const queryClient = useQueryClient()
 
   const { mutateAsync, isLoading } = useMutation(genreService.delete, {
     onSuccess: data => {
-      toast(`The genre was successfully deleted.`);
+      toast(`The artist was successfully deleted.`);
       handleClose()
     },
     onError: () => {
@@ -52,7 +52,7 @@ const GenreDel = (props: any) => {
             Delete genre
           </DialogTitle>
           <DialogContent>
-            Are you sure that you want to delete Genre?
+            Are you sure that you want to delete Artist?
           </DialogContent>
           <DialogActions>
             <Button color="primary" onClick={handleClose} variant="outlined">
@@ -78,10 +78,10 @@ const GenreDel = (props: any) => {
   );
 };
 
-GenreDel.propTypes = {
+ArtistDel.propTypes = {
   handleClose: PropTypes.func,
   open: PropTypes.bool,
   initialData: PropTypes.number
 };
 
-export default GenreDel;
+export default ArtistDel;

@@ -1,0 +1,6 @@
+{
+  "name": "ArtistDel",
+  "version": "0.0.0",
+  "private": true,
+  "main": "ArtistDel.tsx"
+}

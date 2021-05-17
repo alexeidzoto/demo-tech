@@ -31,6 +31,7 @@ const ButtonModal = (props: ButtonModalProps) => {
         color="primary"
         onClick={handleClickOpen}
         variant="contained"
+        size="medium"
       >
         {buttonText}
       </Button>

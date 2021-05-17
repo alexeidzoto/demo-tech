@@ -33,7 +33,7 @@ const GenreEdit = (props: any) => {
   const { data } = useQuery(['genre', { initialData }], genreService.get);
   const { mutateAsync, isLoading } = useMutation(genreService.update, {
     onSuccess: data => {
-      toast(`The playlist was updated successfully`);
+      toast(`The genre was updated successfully`);
       handleClose();
     },
     onError: () => {

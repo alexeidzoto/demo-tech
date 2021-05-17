@@ -1,17 +1,17 @@
 /* eslint-disable react/jsx-wrap-multilines */
 import React from 'react';
-import { useMutation, useQueryClient } from 'react-query';
+import { useMutation, useQueryClient, useQuery } from 'react-query';
 import { useForm, Controller } from 'react-hook-form';
 import PropTypes from 'prop-types';
 import {
   Dialog,
   DialogContent,
   DialogActions,
+  DialogTitle,
   CircularProgress,
   Grid,
   Button,
   TextField,
-  DialogTitle
 } from '@material-ui/core';
 import { toast } from 'react-toastify';
 
@@ -19,35 +19,37 @@ import { toast } from 'react-toastify';
 import useStyles from "./styles";
 
 // domain
-import { Genre } from '../../../domain/types';
 import { genreService } from '../../../domain/services';
+import { Artist } from '../../../domain/types';
 
-const GenreAdd = (props: any) => {
-  const { open, handleClose } = props;
+const ArtistEdit = (props: any) => {
+  const { open, handleClose, initialData } = props;
+
   const classes = useStyles();
-
+  
   const { handleSubmit, control } = useForm();
-
   const queryClient = useQueryClient();
-  const { mutateAsync, isLoading } = useMutation(genreService.add, {
+
+  const { data } = useQuery(['genre', { initialData }], genreService.get);
+  const { mutateAsync, isLoading } = useMutation(genreService.update, {
     onSuccess: data => {
-      toast(`The genre was created successfully`);
+      toast(`The artist was updated successfully`);
       handleClose();
     },
     onError: () => {
-      alert("There was an error")
+      alert("there was an error")
     },
     onSettled: () => {
       queryClient.invalidateQueries('genres');
     }
   });
 
-  const onSubmit = async (genre: Genre) => {
-    await mutateAsync(genre);
+  const onSubmit = (genre: Artist) => {
+    mutateAsync({...genre, id: initialData});
   }
 
   return (
-    <div>
+    <>
       <Dialog
         aria-labelledby="form-dialog-title"
         onClose={handleClose}
@@ -55,15 +57,15 @@ const GenreAdd = (props: any) => {
       >
         <form className={classes.root} onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
           <DialogTitle color="primary" id="form-dialog-title">
-            Add genre
+            Edit genre
           </DialogTitle>
           <DialogContent>
             <Grid container alignItems="flex-start" spacing={2}>
               <Grid item xs={12}>
-                <Controller
+              <Controller
                   name="name"
                   control={control}
-                  defaultValue=""
+                  defaultValue={data?.name}
                   render={({ field: { onChange, value }, fieldState: { error } }) => (
                     <TextField
                       label="Name"
@@ -76,7 +78,6 @@ const GenreAdd = (props: any) => {
                   )}
                   rules={{ required: 'First name required' }}
                 />
-                {/* <p>{formState.errors.name?.message}</p> */}
               </Grid>
             </Grid>
           </DialogContent>
@@ -94,18 +95,18 @@ const GenreAdd = (props: any) => {
                 ) : null
               }
             >
-              Add
+              Update
             </Button>
           </DialogActions>
         </form>
       </Dialog>
-    </div>
+    </>
   );
 };
 
-GenreAdd.propTypes = {
+ArtistEdit.propTypes = {
   handleClose: PropTypes.func,
   open: PropTypes.bool
 };
-
-export default GenreAdd;
+// }
+export default ArtistEdit;

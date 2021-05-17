@@ -19,10 +19,10 @@ import { toast } from 'react-toastify';
 import useStyles from "./styles";
 
 // domain
-import { Genre } from '../../../domain/types';
+import { Artist } from '../../../domain/types';
 import { genreService } from '../../../domain/services';
 
-const GenreAdd = (props: any) => {
+const ArtistAdd = (props: any) => {
   const { open, handleClose } = props;
   const classes = useStyles();
 
@@ -31,7 +31,7 @@ const GenreAdd = (props: any) => {
   const queryClient = useQueryClient();
   const { mutateAsync, isLoading } = useMutation(genreService.add, {
     onSuccess: data => {
-      toast(`The genre was created successfully`);
+      toast(`The artist was created successfully`);
       handleClose();
     },
     onError: () => {
@@ -42,7 +42,7 @@ const GenreAdd = (props: any) => {
     }
   });
 
-  const onSubmit = async (genre: Genre) => {
+  const onSubmit = async (genre: Artist) => {
     await mutateAsync(genre);
   }
 
@@ -103,9 +103,9 @@ const GenreAdd = (props: any) => {
   );
 };
 
-GenreAdd.propTypes = {
+ArtistAdd.propTypes = {
   handleClose: PropTypes.func,
   open: PropTypes.bool
 };
 
-export default GenreAdd;
+export default ArtistAdd;

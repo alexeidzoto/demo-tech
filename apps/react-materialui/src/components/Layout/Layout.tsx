@@ -28,6 +28,7 @@ import Dashboard from "../../pages/dashboard/Dashboard";
 import Playlists from "../../pages/playlists/Playlists";
 import Tracks from "../../pages/tracks/Tracks";
 import Genres from "../../pages/genres/Genres";
+import Artists from "../../pages/artists/Artists";
 
 // context
 import { useLayoutState } from "../../context/LayoutContext";
@@ -54,6 +55,7 @@ function Layout(props: any) {
               <Route path="/app/playlists" component={Playlists} />
               <Route path="/app/tracks" component={Tracks} />
               <Route path="/app/genres" component={Genres} />
+              <Route path="/app/artists" component={Artists} />
             </Switch>
             <Box
               mt={5}
