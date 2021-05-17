@@ -1,0 +1,6 @@
+{
+  "name": "AlbumEdit",
+  "version": "0.0.0",
+  "private": true,
+  "main": "AlbumEdit.tsx"
+}

@@ -166,14 +166,6 @@ export default function Playlists() {
       <div>
         {status === "error" && <p>Error: {error.message}</p>}
         {status === "loading" && <p>Fetching data...</p>}
-        {status === "success" && (
-          <div>
-            {/* {data.map((user) => (
-              <p key={user.id}>{user.name}</p>
-            ))} */}
-            {/* {JSON.stringify(data)} */}
-          </div>
-        )}
       </div>
 
       <PageTitle title="Tracks" />

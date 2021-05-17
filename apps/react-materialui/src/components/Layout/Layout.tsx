@@ -30,6 +30,7 @@ import Tracks from "../../pages/tracks/Tracks";
 import Genres from "../../pages/genres/Genres";
 import Artists from "../../pages/artists/Artists";
 import MediaTypes from "../../pages/media-types/MediaTypes";
+import Albums from "../../pages/albums/Albums";
 
 // context
 import { useLayoutState } from "../../context/LayoutContext";
@@ -58,6 +59,7 @@ function Layout(props: any) {
               <Route path="/app/genres" component={Genres} />
               <Route path="/app/artists" component={Artists} />
               <Route path="/app/mediatypes" component={MediaTypes} />
+              <Route path="/app/albums" component={Albums} />
             </Switch>
             <Box
               mt={5}

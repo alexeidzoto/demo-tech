@@ -1,4 +1,4 @@
-import { Genre } from '../types';
+import { Album } from '../types';
 import { HttpClient } from './http-client';
 
 class AlbumService extends HttpClient {
@@ -49,7 +49,7 @@ class AlbumService extends HttpClient {
     }
   };
 
-  public add = async (data: Genre) => {
+  public add = async (data: Album) => {
     try {
       const res = await this.instance.post<any>("/albums", data, {
         headers: {
@@ -63,7 +63,7 @@ class AlbumService extends HttpClient {
     }
   };
 
-  public update = async (data: Genre) => {
+  public update = async (data: Album) => {
     try {
       const res = await this.instance.put<any>(`/albums/${data.id}`, data, {
         headers: {

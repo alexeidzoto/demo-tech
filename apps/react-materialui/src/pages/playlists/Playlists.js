@@ -102,21 +102,13 @@ export default function Playlists() {
       <div>
         {status === "error" && <p>Error: {error.message}</p>}
         {status === "loading" && <p>Fetching data...</p>}
-        {status === "success" && (
-          <div>
-            {/* {data.map((user) => (
-              <p key={user.id}>{user.name}</p>
-            ))} */}
-          </div>
-        )}
       </div>
 
-      <PageTitle title="Playlists" />
+      <PageTitle title="Playlists" button={<ButtonModal buttonText="Add" formDialog={PlaylistAdd} />}/>
       <Grid container spacing={4}>
         <Grid item xs={12}>
         {status === "success" && (
           <div>
-            <ButtonModal buttonText="Add" formDialog={PlaylistAdd} />
             <MUIDataTable
               title=""
               data={data}
