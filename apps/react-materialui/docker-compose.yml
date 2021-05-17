@@ -8,7 +8,6 @@ services:
     build:
       context: .
       dockerfile: ./docker/node/Dockerfile
-      target: build-react
     container_name: react-web
     restart: unless-stopped
     env_file:

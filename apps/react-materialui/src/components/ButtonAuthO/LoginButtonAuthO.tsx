@@ -12,7 +12,7 @@ export const LoginButtonAuthO = () => {
   const {loginWithPopup} = useAuth0();
   const classes = useStyles();
   
-  var userDispatch = useUserDispatch();
+  const userDispatch: any = useUserDispatch();
 
   const login = () => {
     localStorage.setItem("provider", "authO");

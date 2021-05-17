@@ -1,10 +1,8 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
-import { makeStyles } from "@material-ui/styles";
+// import { makeStyles } from "@material-ui/styles";
 import MUIDataTable from "mui-datatables";
 import { useQuery } from "react-query";
-import TableRow from "@material-ui/core/TableRow";
-import TableCell from "@material-ui/core/TableCell";
 
 // components
 import PageTitle from "../../components/PageTitle/PageTitle";
@@ -13,11 +11,11 @@ import PageTitle from "../../components/PageTitle/PageTitle";
 
 import { trackService } from '../../domain/services';
 
-const useStyles = makeStyles(theme => ({
-  tableOverflow: {
-    overflow: 'auto'
-  }
-}))
+// const useStyles = makeStyles(theme => ({
+//   tableOverflow: {
+//     overflow: 'auto'
+//   }
+// }))
 
 const dollarUS = Intl.NumberFormat("en-US", {
   style: "currency",
@@ -25,7 +23,7 @@ const dollarUS = Intl.NumberFormat("en-US", {
 });
 
 export default function Playlists() {
-  const classes = useStyles();
+  // const classes = useStyles();
 
   const { data, status, error } = useQuery("tracks", trackService.all);
 

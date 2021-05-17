@@ -1,6 +1,6 @@
 {
   "name": "Genres",
   "version": "0.0.0",
-  "main": "Genres.js",
+  "main": "Genres.tsx",
   "private": true
 }

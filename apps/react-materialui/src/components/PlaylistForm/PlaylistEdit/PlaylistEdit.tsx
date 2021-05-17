@@ -48,7 +48,7 @@ const PlaylistEdit = (props: any) => {
   // const { register, handleSubmit, setValue, formState} = useForm<Playlist>({
   //   resolver: yupResolver(schema),
   // });
-  const { handleSubmit, control, formState } = useForm();
+  const { handleSubmit, control } = useForm();
   const queryClient = useQueryClient();
 
   const { data } = useQuery(['playlist', { initialData }], playlistService.get);

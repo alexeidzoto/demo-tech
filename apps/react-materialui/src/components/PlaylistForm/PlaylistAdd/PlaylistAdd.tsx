@@ -20,7 +20,7 @@ import {
 import { Playlist } from '../../../domain/types';
 import { playlistService } from '../../../domain/services';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme: any) => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
@@ -48,7 +48,7 @@ const PlaylistAdd = (props: any) => {
   // const { register, handleSubmit, formState} = useForm<Playlist>({
   //   resolver: yupResolver(schema),
   // });
-  const { handleSubmit, control, formState } = useForm();
+  const { handleSubmit, control } = useForm();
 
   const queryClient = useQueryClient();
   const { mutateAsync, isLoading } = useMutation(playlistService.add, {
