@@ -15,9 +15,6 @@ import {
 } from '@material-ui/core';
 import { toast } from 'react-toastify';
 
-// styles
-import useStyles from "./styles";
-
 // domain
 import { mediatypeService } from '../../../domain/services';
 import { MediaType } from '../../../domain/types';
@@ -25,8 +22,6 @@ import { MediaType } from '../../../domain/types';
 const MediaTypeEdit = (props: any) => {
   const { open, handleClose, initialData } = props;
 
-  const classes = useStyles();
-  
   const { handleSubmit, control } = useForm();
   const queryClient = useQueryClient();
 
@@ -55,7 +50,7 @@ const MediaTypeEdit = (props: any) => {
         onClose={handleClose}
         open={open}
       >
-        <form className={classes.root} onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
+        <form onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
           <DialogTitle color="primary" id="form-dialog-title">
             Edit media type
           </DialogTitle>

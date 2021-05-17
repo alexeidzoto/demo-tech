@@ -15,16 +15,12 @@ import {
 } from '@material-ui/core';
 import { toast } from 'react-toastify';
 
-// styles
-import useStyles from "./styles";
-
 // domain
 import { MediaType } from '../../../domain/types';
 import { mediatypeService } from '../../../domain/services';
 
 const MediaTypeAdd = (props: any) => {
   const { open, handleClose } = props;
-  const classes = useStyles();
 
   const { handleSubmit, control } = useForm();
 
@@ -53,7 +49,7 @@ const MediaTypeAdd = (props: any) => {
         onClose={handleClose}
         open={open}
       >
-        <form className={classes.root} onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
+        <form onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
           <DialogTitle color="primary" id="form-dialog-title">
             Add media types
           </DialogTitle>
@@ -63,11 +59,11 @@ const MediaTypeAdd = (props: any) => {
                 <Controller
                   name="name"
                   control={control}
+                  defaultValue=""
                   render={({ field: { onChange, value }, fieldState: { error } }) => (
                     <TextField
                       label="Name"
                       variant="filled"
-                      defaultValue=""
                       value={value}
                       onChange={onChange}
                       error={!!error}
@@ -76,7 +72,6 @@ const MediaTypeAdd = (props: any) => {
                   )}
                   rules={{ required: 'The name is required' }}
                 />
-                {/* <p>{formState.errors.name?.message}</p> */}
               </Grid>
             </Grid>
           </DialogContent>
