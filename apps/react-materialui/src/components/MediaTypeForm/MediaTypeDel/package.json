@@ -1,0 +1,6 @@
+{
+  "name": "MediaTypeDel",
+  "version": "0.0.0",
+  "private": true,
+  "main": "MediaTypeDel.tsx"
+}

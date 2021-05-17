@@ -1,0 +1,6 @@
+{
+  "name": "MediaTypeAdd",
+  "version": "0.0.0",
+  "private": true,
+  "main": "MediaTypeAdd.tsx"
+}
