@@ -5,7 +5,7 @@ class ArtistService extends HttpClient {
   private static classInstance?: ArtistService;
 
   private constructor() {
-    super('http://localhost:8090');
+    super(process.env.REACT_APP_SERVICESTACK_API as string);
   }
 
   public static getInstance() {
