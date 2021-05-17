@@ -26,6 +26,7 @@ export default function ArtistAutoComplete(
   }: IArtistAutoComplete) {
 
   const getArtistIndex = (): number => {
+    console.log(defaultValue)
     const pos = data.findIndex((artist: any) => (defaultValue.artistId === artist.artistId));
     return pos;
   }

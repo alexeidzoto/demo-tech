@@ -53,7 +53,7 @@ const AlbumEdit = (props: any) => {
   }
 
   const closeModal = () => {
-    resetForm();
+    // resetForm();
     handleClose();
   }
 
