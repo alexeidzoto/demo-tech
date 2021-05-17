@@ -27,10 +27,10 @@ const structure = [
   { id: 8, label: "Tracks", link: "/app/tracks", icon: <TableIcon /> },
   { id: 9, type: "divider" },
   { id: 10, type: "title", label: "HELP" },
-  { id: 11, label: "Service Stack", link: "https://flatlogic.com/templates", icon: <LibraryIcon /> },
-  { id: 12, label: "Chinook", link: "https://flatlogic.com/templates", icon: <LibraryIcon /> },
-  { id: 13, label: "React", link: "https://flatlogic.com/templates", icon: <LibraryIcon /> },
-  { id: 14, label: "Auth0", link: "https://flatlogic.com/templates", icon: <LibraryIcon /> },
+  { id: 11, label: "Service Stack", link: "/app/servicestack", icon: <LibraryIcon /> },
+  { id: 12, label: "Chinook", link: "/app/chinook", icon: <LibraryIcon /> },
+  { id: 13, label: "React", link: "/app/react", icon: <LibraryIcon /> },
+  { id: 14, label: "Auth0", link: "/app/autho", icon: <LibraryIcon /> },
   { id: 15, label: "Flatlogic", link: "https://flatlogic.com/templates", icon: <LibraryIcon /> },
 ];
 
