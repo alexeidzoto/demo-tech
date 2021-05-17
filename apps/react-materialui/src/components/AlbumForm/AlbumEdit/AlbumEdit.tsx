@@ -27,7 +27,7 @@ import ArtistAutoComplete from '../../AutoComplete/ArtistAutoComplete/ArtistAuto
 const AlbumEdit = (props: any) => {
   const { open, handleClose, initialData } = props;
 
-  const { handleSubmit, control, reset } = useForm();
+  const { handleSubmit, control } = useForm();
   const queryClient = useQueryClient();
 
   const { data: dataAlbum } = useQuery(['album', { initialData }], albumService.get) as any;

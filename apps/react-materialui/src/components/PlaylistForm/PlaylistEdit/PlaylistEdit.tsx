@@ -3,7 +3,6 @@ import React from 'react';
 import { useMutation, useQueryClient, useQuery } from 'react-query';
 import { useForm, Controller } from 'react-hook-form';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core';
 import {
   Dialog,
   DialogContent,
@@ -30,7 +29,7 @@ const PlaylistEdit = (props: any) => {
       handleClose();
     },
     onError: () => {
-      alert("there was an error")
+      alert("There was an error")
     },
     onSettled: () => {
       queryClient.invalidateQueries('playlists');

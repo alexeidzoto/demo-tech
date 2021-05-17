@@ -15,21 +15,17 @@ import {
 } from '@material-ui/core';
 import { toast } from 'react-toastify';
 
-// styles
-import useStyles from "./styles";
-
 // domain
 import { Artist } from '../../../domain/types';
-import { genreService } from '../../../domain/services';
+import { artistService } from '../../../domain/services';
 
 const ArtistAdd = (props: any) => {
   const { open, handleClose } = props;
-  const classes = useStyles();
 
   const { handleSubmit, control } = useForm();
 
   const queryClient = useQueryClient();
-  const { mutateAsync, isLoading } = useMutation(genreService.add, {
+  const { mutateAsync, isLoading } = useMutation(artistService.add, {
     onSuccess: data => {
       toast(`The artist was created successfully`);
       handleClose();
@@ -38,7 +34,7 @@ const ArtistAdd = (props: any) => {
       alert("There was an error")
     },
     onSettled: () => {
-      queryClient.invalidateQueries('genres');
+      queryClient.invalidateQueries('artists');
     }
   });
 
@@ -53,9 +49,9 @@ const ArtistAdd = (props: any) => {
         onClose={handleClose}
         open={open}
       >
-        <form className={classes.root} onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
+        <form onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
           <DialogTitle color="primary" id="form-dialog-title">
-            Add genre
+            Add artist
           </DialogTitle>
           <DialogContent>
             <Grid container alignItems="flex-start" spacing={2}>
@@ -74,9 +70,8 @@ const ArtistAdd = (props: any) => {
                       helperText={error ? error.message : null}
                     />
                   )}
-                  rules={{ required: 'First name required' }}
+                  rules={{ required: 'The name is required' }}
                 />
-                {/* <p>{formState.errors.name?.message}</p> */}
               </Grid>
             </Grid>
           </DialogContent>

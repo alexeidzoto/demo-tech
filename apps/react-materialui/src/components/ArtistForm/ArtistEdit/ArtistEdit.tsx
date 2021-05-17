@@ -15,23 +15,18 @@ import {
 } from '@material-ui/core';
 import { toast } from 'react-toastify';
 
-// styles
-import useStyles from "./styles";
-
 // domain
-import { genreService } from '../../../domain/services';
+import { artistService } from '../../../domain/services';
 import { Artist } from '../../../domain/types';
 
 const ArtistEdit = (props: any) => {
   const { open, handleClose, initialData } = props;
 
-  const classes = useStyles();
-  
   const { handleSubmit, control } = useForm();
   const queryClient = useQueryClient();
 
-  const { data } = useQuery(['genre', { initialData }], genreService.get);
-  const { mutateAsync, isLoading } = useMutation(genreService.update, {
+  const { data } = useQuery(['artist', { initialData }], artistService.get);
+  const { mutateAsync, isLoading } = useMutation(artistService.update, {
     onSuccess: data => {
       toast(`The artist was updated successfully`);
       handleClose();
@@ -40,12 +35,12 @@ const ArtistEdit = (props: any) => {
       alert("there was an error")
     },
     onSettled: () => {
-      queryClient.invalidateQueries('genres');
+      queryClient.invalidateQueries('artists');
     }
   });
 
-  const onSubmit = (genre: Artist) => {
-    mutateAsync({...genre, id: initialData});
+  const onSubmit = (artist: Artist) => {
+    mutateAsync({...artist, id: initialData});
   }
 
   return (
@@ -55,7 +50,7 @@ const ArtistEdit = (props: any) => {
         onClose={handleClose}
         open={open}
       >
-        <form className={classes.root} onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
+        <form onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
           <DialogTitle color="primary" id="form-dialog-title">
             Edit genre
           </DialogTitle>
@@ -108,5 +103,5 @@ ArtistEdit.propTypes = {
   handleClose: PropTypes.func,
   open: PropTypes.bool
 };
-// }
+
 export default ArtistEdit;

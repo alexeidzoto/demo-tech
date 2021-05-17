@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-wrap-multilines */
 import React from 'react';
 import { useMutation, useQueryClient } from 'react-query';
-import { genreService } from '../../../domain/services';
+import { artistService } from '../../../domain/services';
 import PropTypes from 'prop-types';
 import {
   Dialog,
@@ -13,18 +13,12 @@ import {
 } from '@material-ui/core';
 import { toast } from 'react-toastify';
 
-// interface ArtistDelProps {
-//   handleClose: ;
-//   open: boolean;
-//   initialData: any;
-// }
-
 const ArtistDel = (props: any) => {
   const { open, handleClose, initialData } = props;
 
   const queryClient = useQueryClient()
 
-  const { mutateAsync, isLoading } = useMutation(genreService.delete, {
+  const { mutateAsync, isLoading } = useMutation(artistService.delete, {
     onSuccess: data => {
       toast(`The artist was successfully deleted.`);
       handleClose()
@@ -33,11 +27,11 @@ const ArtistDel = (props: any) => {
       alert("There was an error")
     },
     onSettled: () => {
-      queryClient.invalidateQueries('genres');
+      queryClient.invalidateQueries('artists');
     }
   });
 
-  const removePlaylist = async () => {
+  const removeArtist = async () => {
     await mutateAsync(initialData)
   }
 
@@ -49,7 +43,7 @@ const ArtistDel = (props: any) => {
         open={open}
       >
           <DialogTitle color="primary" id="form-dialog-title">
-            Delete genre
+            Delete artist
           </DialogTitle>
           <DialogContent>
             Are you sure that you want to delete Artist?
@@ -68,7 +62,7 @@ const ArtistDel = (props: any) => {
                   <CircularProgress color="inherit" size={25} />
                 ) : null
               }
-              onClick={removePlaylist}
+              onClick={removeArtist}
             >
               Delete
             </Button>
