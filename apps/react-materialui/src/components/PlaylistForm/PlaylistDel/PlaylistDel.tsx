@@ -12,12 +12,6 @@ import {
   Button,
 } from '@material-ui/core';
 
-// interface PlaylistDelProps {
-//   handleClose: ;
-//   open: boolean;
-//   initialData: any;
-// }
-
 const PlaylistDel = (props: any) => {
   const { open, handleClose, initialData } = props;
 
@@ -28,7 +22,7 @@ const PlaylistDel = (props: any) => {
       console.log(data);
     },
     onError: () => {
-      alert("there was an error")
+      alert("There was an error")
     },
     onSettled: () => {
       queryClient.invalidateQueries('playlists');

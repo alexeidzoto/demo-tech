@@ -3,7 +3,6 @@ import React from 'react';
 import { useMutation, useQueryClient } from 'react-query';
 import { useForm, Controller } from 'react-hook-form';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core';
 import {
   Dialog,
   DialogContent,
@@ -14,40 +13,12 @@ import {
   TextField,
   DialogTitle
 } from '@material-ui/core';
-// import { yupResolver } from '@hookform/resolvers/yup';
-// import * as yup from "yup";
 
 import { Playlist } from '../../../domain/types';
 import { playlistService } from '../../../domain/services';
 
-const useStyles = makeStyles((theme: any) => ({
-  root: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: theme.spacing(2),
-
-    '& .MuiTextField-root': {
-      margin: theme.spacing(1),
-      width: '300px',
-    },
-    '& .MuiButtonBase-root': {
-      margin: theme.spacing(2),
-    },
-  },
-}));
-
 const PlaylistAdd = (props: any) => {
   const { open, handleClose } = props;
-  const classes = useStyles();
-
-  // const schema = yup.object().shape({
-  //   name: yup.string().required(),
-  // });
-  // const { register, handleSubmit, formState} = useForm<Playlist>({
-  //   resolver: yupResolver(schema),
-  // });
   const { handleSubmit, control } = useForm();
 
   const queryClient = useQueryClient();
@@ -75,7 +46,7 @@ const PlaylistAdd = (props: any) => {
         onClose={handleClose}
         open={open}
       >
-        <form className={classes.root} onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
+        <form onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
           <DialogTitle color="primary" id="form-dialog-title">
             Add playlist
           </DialogTitle>
@@ -91,14 +62,14 @@ const PlaylistAdd = (props: any) => {
                       label="Name"
                       variant="filled"
                       value={value}
+                      fullWidth
                       onChange={onChange}
                       error={!!error}
                       helperText={error ? error.message : null}
                     />
                   )}
-                  rules={{ required: 'First name required' }}
+                  rules={{ required: 'The name is required' }}
                 />
-                {/* <p>{formState.errors.name?.message}</p> */}
               </Grid>
             </Grid>
           </DialogContent>
@@ -129,5 +100,5 @@ PlaylistAdd.propTypes = {
   handleClose: PropTypes.func,
   open: PropTypes.bool
 };
-// }
+
 export default PlaylistAdd;

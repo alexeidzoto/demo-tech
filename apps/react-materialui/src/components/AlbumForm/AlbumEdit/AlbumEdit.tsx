@@ -45,15 +45,7 @@ const AlbumEdit = (props: any) => {
     }
   });
 
-  const resetForm = () => {
-    reset({
-      "title": "",
-      "artistId": ""
-    });
-  }
-
   const closeModal = () => {
-    // resetForm();
     handleClose();
   }
 

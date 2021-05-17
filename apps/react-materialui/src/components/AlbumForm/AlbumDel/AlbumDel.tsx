@@ -43,7 +43,7 @@ const AlbumDel = (props: any) => {
         open={open}
       >
           <DialogTitle color="primary" id="form-dialog-title">
-            Delete genre
+            Delete album
           </DialogTitle>
           <DialogContent>
             Are you sure that you want to delete Album?
