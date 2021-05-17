@@ -97,10 +97,14 @@ export default function Header(props: any) {
           disableAutoFocusItem
         >
           <div className={classes.profileMenuUser}>
-          {isAuthenticated && !isLoading && (
+          {isAuthenticated && !isLoading && provider === "authO" &&(
             <Typography variant="h4" weight="medium">
               {user?.name} 
-              {JSON.stringify(provider)}
+            </Typography>
+          )}
+          {provider === "local" &&(
+            <Typography variant="h4" weight="medium">
+              John Mars 
             </Typography>
           )}
             <Typography
